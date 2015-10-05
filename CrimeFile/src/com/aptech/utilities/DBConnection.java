@@ -7,6 +7,8 @@ package com.aptech.utilities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,22 +18,51 @@ import java.util.logging.Logger;
  * @author MyPC
  */
 public class DBConnection {
-    
+
     public Connection openConnection() {
         Connection connection = null;
-        
+        FileRW fileRW = new FileRW();
+        fileRW.readConfigFile("config.xml");
+        String dbName = fileRW.getDatabaseName();
+        String port = fileRW.getPort();
+        String userName = fileRW.getUser();
+        String password = fileRW.getPassword();
+        String connectionString = "jdbc:sqlserver://localhost:" + port + ";databaseName=" + dbName;
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=crime_file", "sa", "123456");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+            connection = DriverManager.getConnection(connectionString, userName, password);
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return connection;
     }
-    
+
+    public void closeConnection(Connection con, PreparedStatement pstmt, ResultSet rs) {
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         DBConnection dbc = new DBConnection();
         Connection connection = dbc.openConnection();

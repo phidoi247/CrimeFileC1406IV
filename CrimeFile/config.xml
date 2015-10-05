@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+    <databaseName>crime_file</databaseName>
+	<port>1433</port>
+    <user>sa</user>
+    <password>123456</password>
+</config>
