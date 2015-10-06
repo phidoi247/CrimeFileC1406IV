@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.aptech;
+package com.aptech.services;
 
 /**
  *
  * @author MyPC
  */
-public class MainClass {
-    public static void main(String[] args) {
-        System.out.println("test");
-    }
+public class CaseProfileServices {
+    
 }

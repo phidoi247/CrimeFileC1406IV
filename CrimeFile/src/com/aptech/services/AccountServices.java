@@ -9,7 +9,6 @@ package com.aptech.services;
  *
  * @author MyPC
  */
-public class TestServices {
-    //Các phương thức của thực thể Test
-    //ví dụ: addTest, removeTest
+public class AccountServices {
+    
 }
