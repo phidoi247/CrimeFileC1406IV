@@ -153,8 +153,10 @@ public class CaseProfileServices {
         } finally {
             DBConnection.closeConnection(connection, ps, rs, null);
         }
-
+       
         return temp;
+          
     }
-
+    
+    
 }

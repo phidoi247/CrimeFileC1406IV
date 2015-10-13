@@ -5,7 +5,6 @@
  */
 package com.aptech.services;
 
-import com.aptech.model.Account;
 import com.aptech.model.Victim;
 import com.aptech.utilities.DBConnection;
 import java.sql.Connection;
@@ -38,7 +37,7 @@ public class VictimServices {
             ps.setByte(7, victim.getIsDead());
             ps.setString(8, victim.getAutopsy_date());
             ps.setString(9, victim.getReasons_dead());
-            ps.setString(10, victim.getId_profile());
+            ps.setInt(10, victim.getId_profile());
 
             rowAdded += ps.executeUpdate();
         } catch (SQLException ex) {
@@ -69,7 +68,7 @@ public class VictimServices {
             ps.setByte(7, victim.getIsDead());
             ps.setString(8, victim.getAutopsy_date());
             ps.setString(9, victim.getReasons_dead());
-            ps.setString(10, victim.getId_profile());
+            ps.setInt(10, victim.getId_profile());
             ps.setInt(11, victim.getId_victim());
 
             rowUpdated += ps.executeUpdate();
@@ -124,7 +123,7 @@ public class VictimServices {
                 temp.setIsDead(rs.getByte("isDead"));
                 temp.setAutopsy_date(rs.getString("autopsy_date"));
                 temp.setReasons_dead(rs.getString("reason_dead"));
-                temp.setId_profile(rs.getString("id_profile"));
+                temp.setId_profile(rs.getInt("id_profile"));
                 
                 arrVictims.add(temp);
             }
@@ -162,7 +161,7 @@ public class VictimServices {
                 temp.setIsDead(rs.getByte("isDead"));
                 temp.setAutopsy_date(rs.getString("autopsy_date"));
                 temp.setReasons_dead(rs.getString("reason_dead"));
-                temp.setId_profile(rs.getString("id_profile"));
+                temp.setId_profile(rs.getInt("id_profile"));
             }
 
         } catch (SQLException ex) {
@@ -173,4 +172,5 @@ public class VictimServices {
 
         return temp;
     }
+   
 }
