@@ -45,7 +45,7 @@ GO
 
 CREATE TABLE victim(
 	id_victim INT IDENTITY(1,1) PRIMARY KEY,
-	corpse_name NVARCHAR(32) NOT NULL,
+	victim_name NVARCHAR(32) NOT NULL,
 	id_card NVARCHAR(32) NOT NULL,
 	gender BIT NOT NULL,
 	birth NVARCHAR(10) NOT NULL,
