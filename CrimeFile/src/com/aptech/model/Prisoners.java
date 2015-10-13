@@ -18,6 +18,11 @@ public class Prisoners {
     public Prisoners() {
     }
 
+    @Override
+    public String toString() {
+        return "Prisoners{" + "id_crime=" + id_crime + ", detention_date=" + detention_date + ", prison_address=" + prison_address + ", jail_time=" + jail_time + '}';
+    }
+
     public Prisoners(int id_crime, String detention_date, String prison_address, String jail_time) {
         this.id_crime = id_crime;
         this.detention_date = detention_date;

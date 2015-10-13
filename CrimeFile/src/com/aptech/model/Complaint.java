@@ -10,85 +10,48 @@ package com.aptech.model;
  * @author MyPC
  */
 public class Complaint {
-    private int id_complaint;
-    private String victim_name;
-    private String id_card;
-    private byte sex;
-    private String birth;
-    private String address;
-    private String nationality;
+    private int id_profile;
+    private int id_crime;
+    private int id_victim;
     private String testimony;
-    private String id_profile;
 
     public Complaint() {
     }
 
-    public Complaint(int id_complaint, String victim_name, String id_card, byte sex, String birth, String address, String nationality, String testimony, String id_profile) {
-        this.id_complaint = id_complaint;
-        this.victim_name = victim_name;
-        this.id_card = id_card;
-        this.sex = sex;
-        this.birth = birth;
-        this.address = address;
-        this.nationality = nationality;
+    @Override
+    public String toString() {
+        return "Complaint{" + "id_profile=" + id_profile + ", id_crime=" + id_crime + ", id_victim=" + id_victim + ", testimony=" + testimony + '}';
+    }
+
+    public Complaint(int id_profile, int id_crime, int id_victim, String testimony) {
+        this.id_profile = id_profile;
+        this.id_crime = id_crime;
+        this.id_victim = id_victim;
         this.testimony = testimony;
+    }
+
+    public int getId_profile() {
+        return id_profile;
+    }
+
+    public void setId_profile(int id_profile) {
         this.id_profile = id_profile;
     }
 
-    public int getId_complaint() {
-        return id_complaint;
+    public int getId_crime() {
+        return id_crime;
     }
 
-    public void setId_complaint(int id_complaint) {
-        this.id_complaint = id_complaint;
+    public void setId_crime(int id_crime) {
+        this.id_crime = id_crime;
     }
 
-    public String getVictim_name() {
-        return victim_name;
+    public int getId_victim() {
+        return id_victim;
     }
 
-    public void setVictim_name(String victim_name) {
-        this.victim_name = victim_name;
-    }
-
-    public String getId_card() {
-        return id_card;
-    }
-
-    public void setId_card(String id_card) {
-        this.id_card = id_card;
-    }
-
-    public byte getSex() {
-        return sex;
-    }
-
-    public void setSex(byte sex) {
-        this.sex = sex;
-    }
-
-    public String getBirth() {
-        return birth;
-    }
-
-    public void setBirth(String birth) {
-        this.birth = birth;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
+    public void setId_victim(int id_victim) {
+        this.id_victim = id_victim;
     }
 
     public String getTestimony() {
@@ -99,13 +62,6 @@ public class Complaint {
         this.testimony = testimony;
     }
 
-    public String getId_profile() {
-        return id_profile;
-    }
-
-    public void setId_profile(String id_profile) {
-        this.id_profile = id_profile;
-    }
     
     
 }

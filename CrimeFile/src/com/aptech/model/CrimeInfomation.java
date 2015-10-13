@@ -10,10 +10,15 @@ package com.aptech.model;
  * @author MyPC
  */
 public class CrimeInfomation {
+
+    @Override
+    public String toString() {
+        return "CrimeInfomation{" + "id_crime=" + id_crime + ", crime_name=" + crime_name + ", id_card=" + id_card + ", gender=" + gender + ", birth=" + birth + ", hometown=" + hometown + ", address=" + address + ", jobs=" + jobs + ", nationality=" + nationality + ", crime_type=" + crime_type + ", avatar=" + avatar + '}';
+    }
     private int id_crime;
     private String crime_name;
     private String id_card;
-    private byte sex;
+    private byte gender;
     private String birth;
     private String hometown;
     private String address;
@@ -25,11 +30,11 @@ public class CrimeInfomation {
     public CrimeInfomation() {
     }
 
-    public CrimeInfomation(int id_crime, String crime_name, String id_card, byte sex, String birth, String hometown, String address, String jobs, String nationality, String crime_type, String avatar) {
+    public CrimeInfomation(int id_crime, String crime_name, String id_card, byte gender, String birth, String hometown, String address, String jobs, String nationality, String crime_type, String avatar) {
         this.id_crime = id_crime;
         this.crime_name = crime_name;
         this.id_card = id_card;
-        this.sex = sex;
+        this.gender = gender;
         this.birth = birth;
         this.hometown = hometown;
         this.address = address;
@@ -63,12 +68,12 @@ public class CrimeInfomation {
         this.id_card = id_card;
     }
 
-    public byte getSex() {
-        return sex;
+    public byte getGender() {
+        return gender;
     }
 
-    public void setSex(byte sex) {
-        this.sex = sex;
+    public void setGender(byte gender) {
+        this.gender = gender;
     }
 
     public String getBirth() {
@@ -126,6 +131,6 @@ public class CrimeInfomation {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
-    
+
     
 }

@@ -12,16 +12,19 @@ package com.aptech.model;
 public class Wanted {
     private int id_crime;
     private String notify_date;
-    private String content;
     private String status;
 
     public Wanted() {
     }
 
-    public Wanted(int id_crime, String notify_date, String content, String status) {
+    @Override
+    public String toString() {
+        return "Wanted{" + "id_crime=" + id_crime + ", notify_date=" + notify_date + ", status=" + status + '}';
+    }
+
+    public Wanted(int id_crime, String notify_date, String status) {
         this.id_crime = id_crime;
         this.notify_date = notify_date;
-        this.content = content;
         this.status = status;
     }
 
@@ -41,14 +44,6 @@ public class Wanted {
         this.notify_date = notify_date;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -56,5 +51,6 @@ public class Wanted {
     public void setStatus(String status) {
         this.status = status;
     }
+
     
 }

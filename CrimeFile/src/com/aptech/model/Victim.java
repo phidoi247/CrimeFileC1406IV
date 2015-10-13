@@ -9,50 +9,55 @@ package com.aptech.model;
  *
  * @author MyPC
  */
-public class Corpse {
-    private int id_corpse;
-    private String corpse_name;
+public class Victim {
+    private int id_victim;
+    private String victim_name;
     private String id_card;
-    private byte sex;
+    private byte gender;
     private String birth;
     private String address;
     private String nationality;
+    private byte isDead;
     private String autopsy_date;
     private String reasons_dead;
-    private String username;
     private String id_profile;
 
-    public Corpse() {
+    public Victim() {
     }
 
-    public Corpse(int id_corpse, String corpse_name, String id_card, byte sex, String birth, String address, String nationality, String autopsy_date, String reasons_dead, String username, String id_profile) {
-        this.id_corpse = id_corpse;
-        this.corpse_name = corpse_name;
+    @Override
+    public String toString() {
+        return "Victim{" + "id_victim=" + id_victim + ", victim_name=" + victim_name + ", id_card=" + id_card + ", gender=" + gender + ", birth=" + birth + ", address=" + address + ", nationality=" + nationality + ", isDead=" + isDead + ", autopsy_date=" + autopsy_date + ", reasons_dead=" + reasons_dead + ", id_profile=" + id_profile + '}';
+    }
+
+    public Victim(int id_victim, String victim_name, String id_card, byte gender, String birth, String address, String nationality, byte isDead, String autopsy_date, String reasons_dead, String id_profile) {
+        this.id_victim = id_victim;
+        this.victim_name = victim_name;
         this.id_card = id_card;
-        this.sex = sex;
+        this.gender = gender;
         this.birth = birth;
         this.address = address;
         this.nationality = nationality;
+        this.isDead = isDead;
         this.autopsy_date = autopsy_date;
         this.reasons_dead = reasons_dead;
-        this.username = username;
         this.id_profile = id_profile;
     }
 
-    public int getId_corpse() {
-        return id_corpse;
+    public int getId_victim() {
+        return id_victim;
     }
 
-    public void setId_corpse(int id_corpse) {
-        this.id_corpse = id_corpse;
+    public void setId_victim(int id_victim) {
+        this.id_victim = id_victim;
     }
 
-    public String getCorpse_name() {
-        return corpse_name;
+    public String getVictim_name() {
+        return victim_name;
     }
 
-    public void setCorpse_name(String corpse_name) {
-        this.corpse_name = corpse_name;
+    public void setVictim_name(String victim_name) {
+        this.victim_name = victim_name;
     }
 
     public String getId_card() {
@@ -63,12 +68,12 @@ public class Corpse {
         this.id_card = id_card;
     }
 
-    public byte getSex() {
-        return sex;
+    public byte getGender() {
+        return gender;
     }
 
-    public void setSex(byte sex) {
-        this.sex = sex;
+    public void setGender(byte gender) {
+        this.gender = gender;
     }
 
     public String getBirth() {
@@ -95,6 +100,14 @@ public class Corpse {
         this.nationality = nationality;
     }
 
+    public byte getIsDead() {
+        return isDead;
+    }
+
+    public void setIsDead(byte isDead) {
+        this.isDead = isDead;
+    }
+
     public String getAutopsy_date() {
         return autopsy_date;
     }
@@ -109,14 +122,6 @@ public class Corpse {
 
     public void setReasons_dead(String reasons_dead) {
         this.reasons_dead = reasons_dead;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getId_profile() {

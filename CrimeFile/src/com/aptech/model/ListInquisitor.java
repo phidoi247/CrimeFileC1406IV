@@ -9,21 +9,21 @@ package com.aptech.model;
  *
  * @author MyPC
  */
-public class CrimeList {
+public class ListInquisitor {
     private int id_profile;
-    private int id_crime;
+    private  String username;
+
+    public ListInquisitor() {
+    }
 
     @Override
     public String toString() {
-        return "CrimeList{" + "id_profile=" + id_profile + ", id_crime=" + id_crime + '}';
+        return "ListInquisitor{" + "id_profile=" + id_profile + ", username=" + username + '}';
     }
 
-    public CrimeList() {
-    }
-
-    public CrimeList(int id_profile, int id_crime) {
+    public ListInquisitor(int id_profile, String username) {
         this.id_profile = id_profile;
-        this.id_crime = id_crime;
+        this.username = username;
     }
 
     public int getId_profile() {
@@ -34,13 +34,12 @@ public class CrimeList {
         this.id_profile = id_profile;
     }
 
-    public int getId_crime() {
-        return id_crime;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId_crime(int id_crime) {
-        this.id_crime = id_crime;
+    public void setUsername(String username) {
+        this.username = username;
     }
-    
     
 }

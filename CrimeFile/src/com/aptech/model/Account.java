@@ -13,9 +13,9 @@ public class Account {
     private String username;
     private String password;
     private String email;
-    private int level;
-    private String fullname;
-    private byte sex;
+    private int permission;
+    private String full_name;
+    private byte gender;
     private String birth;
     private String address;
     private String phone_number;
@@ -25,13 +25,13 @@ public class Account {
     public Account() {
     }
 
-    public Account(String username, String password, String email, int level, String fullname, byte sex, String birth, String address, String phone_number, String workplace, String avatar) {
+    public Account(String username, String password, String email, int permission, String full_name, byte gender, String birth, String address, String phone_number, String workplace, String avatar) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.level = level;
-        this.fullname = fullname;
-        this.sex = sex;
+        this.permission = permission;
+        this.full_name = full_name;
+        this.gender = gender;
         this.birth = birth;
         this.address = address;
         this.phone_number = phone_number;
@@ -63,28 +63,28 @@ public class Account {
         this.email = email;
     }
 
-    public int getLevel() {
-        return level;
+    public int getPermission() {
+        return permission;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setPermission(int permission) {
+        this.permission = permission;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
-    public byte getSex() {
-        return sex;
+    public byte getGender() {
+        return gender;
     }
 
-    public void setSex(byte sex) {
-        this.sex = sex;
+    public void setGender(byte gender) {
+        this.gender = gender;
     }
 
     public String getBirth() {
@@ -125,6 +125,11 @@ public class Account {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" + "username=" + username + ", password=" + password + ", email=" + email + ", permission=" + permission + ", full_name=" + full_name + ", gender=" + gender + ", birth=" + birth + ", address=" + address + ", phone_number=" + phone_number + ", workplace=" + workplace + ", avatar=" + avatar + '}';
     }
     
 }

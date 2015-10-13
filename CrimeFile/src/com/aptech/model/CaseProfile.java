@@ -18,6 +18,11 @@ public class CaseProfile {
     private String conclude;
     private String status;
 
+    @Override
+    public String toString() {
+        return "CaseProfile{" + "id_profile=" + id_profile + ", day_admission=" + day_admission + ", crime_scene=" + crime_scene + ", exhibit=" + exhibit + ", accusation=" + accusation + ", conclude=" + conclude + ", status=" + status + '}';
+    }
+
     public CaseProfile() {
     }
 

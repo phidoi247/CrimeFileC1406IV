@@ -5,6 +5,7 @@
  */
 package com.aptech.utilities;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class DBConnection {
 
-    public Connection openConnection() {
+    public static Connection openConnection() {
         Connection connection = null;
         FileRW fileRW = new FileRW();
         fileRW.readConfigFile("config.xml");
@@ -39,7 +40,7 @@ public class DBConnection {
         return connection;
     }
 
-    public void closeConnection(Connection con, PreparedStatement pstmt, ResultSet rs) {
+    public static void closeConnection(Connection con, PreparedStatement pstmt, ResultSet rs, CallableStatement cs) {
         if (con != null) {
             try {
                 con.close();
@@ -61,13 +62,13 @@ public class DBConnection {
                 Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        DBConnection dbc = new DBConnection();
-        Connection connection = dbc.openConnection();
-        if (connection != null) {
-            System.out.println("thanh cong");
+        if (cs != null) {
+            try {
+                cs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
+
 }

@@ -9,6 +9,6 @@ package com.aptech.services;
  *
  * @author MyPC
  */
-public class CorpseServices {
+public class VictimServices {
     
 }
