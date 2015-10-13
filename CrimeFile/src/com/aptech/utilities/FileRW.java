@@ -5,7 +5,10 @@
  */
 package com.aptech.utilities;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.*;
@@ -35,7 +38,7 @@ public class FileRW {
             port = getTextValue(port, doc, "port");
             user = getTextValue(user, doc, "user");
             password = getTextValue(password, doc, "password");
-            
+
             return true;
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(FileRW.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,14 +56,24 @@ public class FileRW {
         }
         return value;
     }
-    
-    public static void main(String[] args) {
-        FileRW fileRW = new FileRW();
-        fileRW.readConfigFile("config.xml");
-        System.out.println(fileRW.databaseName);
-        System.out.println(fileRW.port);
-        System.out.println(fileRW.user);
-        System.out.println(fileRW.password);
+
+    public void writeConfigFile(String xml, String _databaseName, String _port, String _user, String _password) {
+        PrintWriter writer;
+        try {
+            writer = new PrintWriter(xml, "UTF-8");
+            writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+            writer.println("<config>");
+            writer.println("<databaseName>" + _databaseName + "</databaseName>");
+            writer.println("<port>" + _port + "</port>");
+            writer.println("<user>" + _user + "</user>");
+            writer.println("<password>" + _password + "</password>");
+            writer.println("</config>");
+            
+            writer.close();
+        } catch (FileNotFoundException | UnsupportedEncodingException ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     public String getDatabaseName() {
