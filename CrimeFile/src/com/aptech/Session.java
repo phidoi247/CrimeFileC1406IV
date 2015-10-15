@@ -5,15 +5,12 @@
  */
 package com.aptech;
 
-import com.aptech.GUI.Login;
-
 /**
  *
  * @author MyPC
  */
-public class MainClass {
-    public static void main(String[] args) {
-        Login login = new Login();
-        login.show();
-    }
+public class Session {
+    public static String userName = "";
+    public static int permission = 0;
+    public static  String fullName = "";
 }

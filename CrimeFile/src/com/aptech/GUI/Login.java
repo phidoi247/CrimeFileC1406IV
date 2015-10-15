@@ -5,7 +5,13 @@
  */
 package com.aptech.GUI;
 
-import com.aptech.model.Account;
+import com.aptech.Session;
+import com.aptech.services.AccountServices;
+import com.aptech.utilities.Validator;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,8 +24,13 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        try {
+            this.setIconImage(ImageIO.read(new File("images/favicon.png")));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,21 +40,112 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        btnLogin = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        lblBackground = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItemConfig = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemExit = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("User Name:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, 20));
+        getContentPane().add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 220, -1));
+
+        jLabel3.setText("Password:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 20));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 220, -1));
+
+        btnLogin.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\check.png")); // NOI18N
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 100, -1));
+
+        btnReset.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\delete2.png")); // NOI18N
+        btnReset.setText("Cancel");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 100, -1));
+
+        lblBackground.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\login-background.png")); // NOI18N
+        getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
+
+        jMenu1.setText("File");
+
+        jMenuItemConfig.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\wrench.png")); // NOI18N
+        jMenuItemConfig.setText("Config");
+        jMenuItemConfig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemConfigActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemConfig);
+        jMenu1.add(jSeparator1);
+
+        jMenuItemExit.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\Error.png")); // NOI18N
+        jMenuItemExit.setText("Exit");
+        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemExit);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
+        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "Are you sure want to exit?", "Confirm exit", JOptionPane.OK_CANCEL_OPTION);
+        if (showConfirmDialog == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItemExitActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "Are you sure want to exit?", "Confirm exit", JOptionPane.OK_CANCEL_OPTION);
+        if (showConfirmDialog == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void jMenuItemConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConfigActionPerformed
+        ConfigDialog configDialog = new ConfigDialog(this, rootPaneCheckingEnabled);
+        configDialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemConfigActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String userName = txtUserName.getText();
+        String userPassword = String.valueOf(txtPassword.getPassword());
+
+        if (Validator.isNotNull(userName) && Validator.isNotNull(userPassword)) {
+            checkLogin(userName, userPassword);
+        } else {
+            JOptionPane.showMessageDialog(null, "Should not be empty", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -56,7 +158,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -81,5 +183,34 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemConfig;
+    private javax.swing.JMenuItem jMenuItemExit;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    private void checkLogin(String userName, String userPassword) {
+        String sysPassword = AccountServices.login(userName);
+        if (sysPassword.equals("")) {
+            JOptionPane.showMessageDialog(null, "Wrong user name!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        } else if (sysPassword.equals(userPassword)) {
+            if (Session.permission == 1) {
+                
+            } else if(Session.permission == 2) {
+                UserFrame mainFrame = new UserFrame();
+                mainFrame.setVisible(true);
+            }
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Wrong password!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
 }

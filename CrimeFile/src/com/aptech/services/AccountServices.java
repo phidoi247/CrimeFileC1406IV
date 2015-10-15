@@ -5,6 +5,7 @@
  */
 package com.aptech.services;
 
+import com.aptech.Session;
 import com.aptech.model.Account;
 import com.aptech.utilities.DBConnection;
 import java.sql.Connection;
@@ -159,6 +160,7 @@ public class AccountServices {
                 temp.setPhone_number(rs.getString("phone_number"));
                 temp.setWorkplace(rs.getString("workplace"));
                 temp.setAvatar(rs.getString("avartar"));
+                temp.setFull_name(rs.getString("full_name"));
             }
 
         } catch (SQLException ex) {
@@ -167,9 +169,31 @@ public class AccountServices {
             DBConnection.closeConnection(connection, ps, rs, null);
         }
 
-        
-              
         return temp;
     }
-   
+
+    public static String login(String userName) {
+        String password = "";
+        Connection connection = DBConnection.openConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String query = " SELECT password, permission, full_name FROM [crime_file].[dbo].[account] WHERE [username] = ? ";
+
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userName);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                password = rs.getString("password");
+                Session.permission = rs.getInt("permission");
+                Session.userName = userName;
+                Session.fullName = rs.getString("full_name");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return password;
+    }
+
 }
