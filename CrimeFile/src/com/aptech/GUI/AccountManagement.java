@@ -98,7 +98,7 @@ public class AccountManagement extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblDisplay);
 
-        jbChangeInfomation.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_refresh.png")); // NOI18N
+        jbChangeInfomation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user1_refresh.png"))); // NOI18N
         jbChangeInfomation.setText("Change info");
         jbChangeInfomation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,13 +106,13 @@ public class AccountManagement extends javax.swing.JPanel {
             }
         });
 
-        jbAddAccount.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_add.png")); // NOI18N
+        jbAddAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user1_add.png"))); // NOI18N
         jbAddAccount.setText("Add account");
 
-        jbDeleteAccount.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_delete.png")); // NOI18N
+        jbDeleteAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user1_delete.png"))); // NOI18N
         jbDeleteAccount.setText("Delete account");
 
-        jbDeleteAccount1.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_view.png")); // NOI18N
+        jbDeleteAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user1_view.png"))); // NOI18N
         jbDeleteAccount1.setText("Find account");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

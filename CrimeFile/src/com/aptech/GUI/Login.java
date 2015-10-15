@@ -65,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 20));
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 220, -1));
 
-        btnLogin.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\check.png")); // NOI18N
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/check.png"))); // NOI18N
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +74,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 100, -1));
 
-        btnReset.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\delete2.png")); // NOI18N
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete2.png"))); // NOI18N
         btnReset.setText("Cancel");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,12 +83,12 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 100, -1));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\login-background.png")); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login-background.png"))); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
 
         jMenu1.setText("File");
 
-        jMenuItemConfig.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\wrench.png")); // NOI18N
+        jMenuItemConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wrench.png"))); // NOI18N
         jMenuItemConfig.setText("Config");
         jMenuItemConfig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         jMenu1.add(jMenuItemConfig);
         jMenu1.add(jSeparator1);
 
-        jMenuItemExit.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\Error.png")); // NOI18N
+        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))); // NOI18N
         jMenuItemExit.setText("Exit");
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

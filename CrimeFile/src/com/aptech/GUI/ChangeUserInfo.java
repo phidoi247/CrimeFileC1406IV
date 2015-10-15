@@ -95,7 +95,7 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         jLabel7.setText("Phone number:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, -1));
 
-        jbUpdate.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_refresh.png")); // NOI18N
+        jbUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user1_refresh.png"))); // NOI18N
         jbUpdate.setText("Change");
         jbUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 130, -1));
         getContentPane().add(txtRepassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 130, -1));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\login-background.png")); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login-background.png"))); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();

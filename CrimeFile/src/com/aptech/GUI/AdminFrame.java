@@ -68,14 +68,14 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jpMenu.setBackground(new java.awt.Color(221, 221, 221));
 
-        jbAccount.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\Button\\account.png")); // NOI18N
+        jbAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/account.png"))); // NOI18N
         jbAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAccountActionPerformed(evt);
             }
         });
 
-        jbFir.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\Button\\FIR.png")); // NOI18N
+        jbFir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FIR.png"))); // NOI18N
         jbFir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbFirActionPerformed(evt);
@@ -124,7 +124,7 @@ public class AdminFrame extends javax.swing.JFrame {
         getContentPane().add(jpAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 120));
         getContentPane().add(jlAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 120));
 
-        jbUserInfo.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\briefcase_view.png")); // NOI18N
+        jbUserInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/briefcase_view.png"))); // NOI18N
         jbUserInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbUserInfoActionPerformed(evt);
@@ -134,7 +134,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jpBanner.setBackground(new java.awt.Color(13, 200, 189));
 
-        jlBanner.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\banner.gif")); // NOI18N
+        jlBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/banner.gif"))); // NOI18N
 
         javax.swing.GroupLayout jpBannerLayout = new javax.swing.GroupLayout(jpBanner);
         jpBanner.setLayout(jpBannerLayout);
@@ -149,13 +149,13 @@ public class AdminFrame extends javax.swing.JFrame {
 
         getContentPane().add(jpBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 600, 120));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\UserFrameBackground.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserFrameBackground.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 650));
 
         jMenu1.setText("File");
         jMenu1.add(jSeparator1);
 
-        jMenuItemExit.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\Error.png")); // NOI18N
+        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Error.png"))); // NOI18N
         jMenuItemExit.setText("Exit");
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +168,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Help");
 
-        jMenuItemAbout.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\about.png")); // NOI18N
+        jMenuItemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/about.png"))); // NOI18N
         jMenuItemAbout.setText("About");
         jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

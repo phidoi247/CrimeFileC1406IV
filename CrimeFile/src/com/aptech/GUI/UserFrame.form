@@ -14,7 +14,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemExit">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\Error.png"/>
+                  <Image iconType="3" name="/Images/Error.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
@@ -32,7 +32,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAbout">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\about.png"/>
+                  <Image iconType="3" name="/Images/about.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="About"/>
               </Properties>
@@ -135,7 +135,7 @@
         <Component class="javax.swing.JButton" name="jbCaseHistory">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\button\CASE-HISTORY.png"/>
+              <Image iconType="3" name="/Images/CASE-HISTORY.png"/>
             </Property>
           </Properties>
           <Events>
@@ -145,7 +145,7 @@
         <Component class="javax.swing.JButton" name="jbComplaint">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\button\COMPALINT.png"/>
+              <Image iconType="3" name="/Images/COMPALINT.png"/>
             </Property>
           </Properties>
           <Events>
@@ -155,7 +155,7 @@
         <Component class="javax.swing.JButton" name="jbCriminal">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\button\CRIMINAL.png"/>
+              <Image iconType="3" name="/Images/CRIMINAL.png"/>
             </Property>
           </Properties>
           <Events>
@@ -165,7 +165,7 @@
         <Component class="javax.swing.JButton" name="jbPostmortem">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\button\POSTMORTEM.png"/>
+              <Image iconType="3" name="/Images/POSTMORTEM.png"/>
             </Property>
           </Properties>
           <Events>
@@ -175,7 +175,7 @@
         <Component class="javax.swing.JButton" name="jbPrisoners">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\button\PRISONER.png"/>
+              <Image iconType="3" name="/Images/PRISONER.png"/>
             </Property>
           </Properties>
           <Events>
@@ -185,7 +185,7 @@
         <Component class="javax.swing.JButton" name="jbMostWanted">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\button\WANTED.png"/>
+              <Image iconType="3" name="/Images/WANTED.png"/>
             </Property>
           </Properties>
           <Events>
@@ -255,7 +255,7 @@
     <Component class="javax.swing.JButton" name="jbUserInfo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\briefcase_view.png"/>
+          <Image iconType="3" name="/Images/briefcase_view.png"/>
         </Property>
       </Properties>
       <Events>
@@ -295,7 +295,7 @@
         <Component class="javax.swing.JLabel" name="jlBanner">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\banner.gif"/>
+              <Image iconType="3" name="/Images/banner.gif"/>
             </Property>
           </Properties>
         </Component>
@@ -304,7 +304,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\UserFrameBackground.png"/>
+          <Image iconType="3" name="/Images/UserFrameBackground.png"/>
         </Property>
       </Properties>
       <Constraints>

@@ -102,7 +102,7 @@ public class UserInfo extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
         getContentPane().add(lblWorkplace, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 260, 20));
 
-        jbChange.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_refresh.png")); // NOI18N
+        jbChange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user1_refresh.png"))); // NOI18N
         jbChange.setText("Change Infomation");
         jbChange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +111,7 @@ public class UserInfo extends javax.swing.JFrame {
         });
         getContentPane().add(jbChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\login-background.png")); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login-background.png"))); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();

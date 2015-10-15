@@ -12,7 +12,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConfig">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\wrench.png"/>
+                  <Image iconType="3" name="/Images/wrench.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Config"/>
               </Properties>
@@ -25,7 +25,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemExit">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\Error.png"/>
+                  <Image iconType="3" name="/Images/delete.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
@@ -101,7 +101,7 @@
     <Component class="javax.swing.JButton" name="btnLogin">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\check.png"/>
+          <Image iconType="3" name="/Images/check.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
@@ -117,7 +117,7 @@
     <Component class="javax.swing.JButton" name="btnReset">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\icons\delete2.png"/>
+          <Image iconType="3" name="/Images/delete2.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
@@ -133,7 +133,7 @@
     <Component class="javax.swing.JLabel" name="lblBackground">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\eproject2\trunk\CrimeFile\images\login-background.png"/>
+          <Image iconType="3" name="/Images/login-background.png"/>
         </Property>
       </Properties>
       <Constraints>

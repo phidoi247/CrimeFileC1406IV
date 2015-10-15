@@ -73,42 +73,42 @@ public class UserFrame extends javax.swing.JFrame {
 
         jpMenu.setBackground(new java.awt.Color(221, 221, 221));
 
-        jbCaseHistory.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\button\\CASE-HISTORY.png")); // NOI18N
+        jbCaseHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CASE-HISTORY.png"))); // NOI18N
         jbCaseHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCaseHistoryActionPerformed(evt);
             }
         });
 
-        jbComplaint.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\button\\COMPALINT.png")); // NOI18N
+        jbComplaint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/COMPALINT.png"))); // NOI18N
         jbComplaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbComplaintActionPerformed(evt);
             }
         });
 
-        jbCriminal.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\button\\CRIMINAL.png")); // NOI18N
+        jbCriminal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CRIMINAL.png"))); // NOI18N
         jbCriminal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCriminalActionPerformed(evt);
             }
         });
 
-        jbPostmortem.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\button\\POSTMORTEM.png")); // NOI18N
+        jbPostmortem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/POSTMORTEM.png"))); // NOI18N
         jbPostmortem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPostmortemActionPerformed(evt);
             }
         });
 
-        jbPrisoners.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\button\\PRISONER.png")); // NOI18N
+        jbPrisoners.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PRISONER.png"))); // NOI18N
         jbPrisoners.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPrisonersActionPerformed(evt);
             }
         });
 
-        jbMostWanted.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\button\\WANTED.png")); // NOI18N
+        jbMostWanted.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WANTED.png"))); // NOI18N
         jbMostWanted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbMostWantedActionPerformed(evt);
@@ -182,7 +182,7 @@ public class UserFrame extends javax.swing.JFrame {
         getContentPane().add(jpAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 120));
         getContentPane().add(jlAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 120));
 
-        jbUserInfo.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\briefcase_view.png")); // NOI18N
+        jbUserInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/briefcase_view.png"))); // NOI18N
         jbUserInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbUserInfoActionPerformed(evt);
@@ -192,7 +192,7 @@ public class UserFrame extends javax.swing.JFrame {
 
         jpBanner.setBackground(new java.awt.Color(13, 200, 189));
 
-        jlBanner.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\banner.gif")); // NOI18N
+        jlBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/banner.gif"))); // NOI18N
 
         javax.swing.GroupLayout jpBannerLayout = new javax.swing.GroupLayout(jpBanner);
         jpBanner.setLayout(jpBannerLayout);
@@ -207,13 +207,13 @@ public class UserFrame extends javax.swing.JFrame {
 
         getContentPane().add(jpBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 600, 120));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\UserFrameBackground.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserFrameBackground.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 650));
 
         jMenu1.setText("File");
         jMenu1.add(jSeparator1);
 
-        jMenuItemExit.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\Error.png")); // NOI18N
+        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Error.png"))); // NOI18N
         jMenuItemExit.setText("Exit");
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +226,7 @@ public class UserFrame extends javax.swing.JFrame {
 
         jMenu3.setText("Help");
 
-        jMenuItemAbout.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\about.png")); // NOI18N
+        jMenuItemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/about.png"))); // NOI18N
         jMenuItemAbout.setText("About");
         jMenuItemAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
