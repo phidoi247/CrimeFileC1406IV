@@ -8,15 +8,19 @@ package com.aptech.GUI;
 import com.aptech.Session;
 import com.aptech.model.Account;
 import com.aptech.services.AccountServices;
+import com.aptech.utilities.Validator;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author MyPC
  */
 public class ChangeUserInfo extends javax.swing.JDialog {
+    
+    Account currentAccount = null;
 
     /**
      * Creates new form ChangeUserInfo
@@ -29,7 +33,7 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        Account currentAccount = AccountServices.findByUsername(Session.userName);
+        currentAccount = AccountServices.findByUsername(Session.userName);
         setUserInfomationForm(currentAccount);
     }
 
@@ -54,11 +58,15 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbUpdate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtWorkPlace = new javax.swing.JTextField();
         rdoMale = new javax.swing.JRadioButton();
         rdoFemale = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        txtRepassword = new javax.swing.JPasswordField();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -87,14 +95,14 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         jLabel7.setText("Phone number:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_refresh.png")); // NOI18N
-        jButton1.setText("Change");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbUpdate.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_refresh.png")); // NOI18N
+        jbUpdate.setText("Change");
+        jbUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+        getContentPane().add(jbUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
 
         jLabel8.setText("Work place:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, -1));
@@ -108,27 +116,87 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         rdoFemale.setText("Female");
         getContentPane().add(rdoFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
+        jLabel9.setText("Password: ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, -1));
+
+        jLabel10.setText("RePassword: ");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 130, -1));
+        getContentPane().add(txtRepassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 130, -1));
+
         lblBackground.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\login-background.png")); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Account account = new Account();
-        account.setFull_name(txtFullName.getText());
-        account.setEmail(txtEmail.getText());
-        account.setBirth(txtBirth.getText());
-        account.setAddress(txtAddress.getText());
-        account.setPhone_number(txtPhoneNumber.getText());
-        account.setWorkplace(txtWorkPlace.getText());
-        if (rdoMale.isSelected()) {
-            account.setGender((byte) 1);
-        } else if (rdoFemale.isSelected()) {
-            account.setGender((byte) 0);
+    private void jbUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbUpdateActionPerformed
+        String error = "Error: ";
+        if (Validator.isNotNull(txtFullName.getText())) {
+            currentAccount.setFull_name(txtFullName.getText());
+        } else {
+            error += "\n- Full name should not be empty!";
         }
-        account.setUsername(Session.userName);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        if (Validator.isNotNull(txtEmail.getText())) {
+            currentAccount.setEmail(txtEmail.getText());
+        } else {
+            error += "\n- Email should not be empty!";
+        }
+        
+        if (Validator.isNotNull(txtBirth.getText())) {
+            currentAccount.setBirth(txtBirth.getText());
+        } else {
+            error += "\n- Birth should not be empty!";
+        }
+        
+        if (Validator.isNotNull(txtAddress.getText())) {
+            currentAccount.setAddress(txtAddress.getText());
+        } else {
+            error += "\n- Address should not be empty!";
+        }
+        
+        if (Validator.isNotNull(txtPhoneNumber.getText())) {
+            currentAccount.setPhone_number(txtPhoneNumber.getText());
+        } else {
+            error += "\n- Phone number should not be empty!";
+        }
+        
+        if (Validator.isNotNull(txtWorkPlace.getText())) {
+            currentAccount.setWorkplace(txtWorkPlace.getText());
+        } else {
+            error += "\n- Workplace should not be empty!";
+        }
+        
+        if (Validator.isNotNull(String.valueOf(txtPassword.getPassword())) || Validator.isNotNull(String.valueOf(txtRepassword.getPassword()))) {
+            if (Validator.equals(String.valueOf(txtPassword.getPassword()), String.valueOf(txtRepassword.getPassword()))) {
+                currentAccount.setPassword(String.valueOf(txtPassword.getPassword()));
+            } else {
+                error += "\n- Password and RePassword shold be equals!";
+            }
+        } else {
+            error += "\n- Password shold not be empty!";
+        }
+        
+        if (rdoMale.isSelected()) {
+            currentAccount.setGender((byte) 1);
+        } else if (rdoFemale.isSelected()) {
+            currentAccount.setGender((byte) 0);
+        }
+        currentAccount.setUsername(Session.userName);
+        
+        if (error.equals("Error: ")) {
+            int updateAccount = AccountServices.updateAccount(currentAccount);
+            if (updateAccount > 0) {
+                JOptionPane.showMessageDialog(null, "Update Success!");
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Update fail!");
+            }
+        }
+
+    }//GEN-LAST:event_jbUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,7 +239,7 @@ public class ChangeUserInfo extends javax.swing.JDialog {
             }
         });
     }
-
+    
     private void setUserInfomationForm(Account currentAccount) {
         this.txtAddress.setText(currentAccount.getAddress());
         this.txtBirth.setText(currentAccount.getBirth());
@@ -184,11 +252,13 @@ public class ChangeUserInfo extends javax.swing.JDialog {
         } else if (currentAccount.getGender() == (byte) 0) {
             rdoFemale.setSelected(true);
         }
+        this.txtPassword.setText(currentAccount.getPassword());
+        this.txtRepassword.setText(currentAccount.getPassword());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -196,6 +266,8 @@ public class ChangeUserInfo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jbUpdate;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JRadioButton rdoFemale;
     private javax.swing.JRadioButton rdoMale;
@@ -203,7 +275,9 @@ public class ChangeUserInfo extends javax.swing.JDialog {
     private javax.swing.JTextField txtBirth;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFullName;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JPasswordField txtRepassword;
     private javax.swing.JTextField txtWorkPlace;
     // End of variables declaration//GEN-END:variables
 }

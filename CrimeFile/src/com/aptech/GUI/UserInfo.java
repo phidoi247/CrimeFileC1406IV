@@ -57,6 +57,7 @@ public class UserInfo extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         lblWorkplace = new javax.swing.JLabel();
+        jbChange = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -101,12 +102,27 @@ public class UserInfo extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
         getContentPane().add(lblWorkplace, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 260, 20));
 
+        jbChange.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\icons\\user1_refresh.png")); // NOI18N
+        jbChange.setText("Change Infomation");
+        jbChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbChangeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
+
         lblBackground.setIcon(new javax.swing.ImageIcon("D:\\eproject2\\trunk\\CrimeFile\\images\\login-background.png")); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbChangeActionPerformed
+        ChangeUserInfo changeUserInfo = new ChangeUserInfo(null, true);
+        changeUserInfo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbChangeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,6 +168,7 @@ public class UserInfo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jbChange;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblBirth;

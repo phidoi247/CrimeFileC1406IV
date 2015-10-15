@@ -203,7 +203,8 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Wrong user name!", "Warning!", JOptionPane.WARNING_MESSAGE);
         } else if (sysPassword.equals(userPassword)) {
             if (Session.permission == 1) {
-                
+                AdminFrame adminFrame = new AdminFrame();
+                adminFrame.setVisible(true);
             } else if(Session.permission == 2) {
                 UserFrame mainFrame = new UserFrame();
                 mainFrame.setVisible(true);

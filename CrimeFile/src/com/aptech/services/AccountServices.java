@@ -114,6 +114,7 @@ public class AccountServices {
 
             while (rs.next()) {
                 Account temp = new Account();
+                temp.setFull_name(rs.getString("full_name"));
                 temp.setUsername(rs.getString("username"));
                 temp.setPassword(rs.getString("password"));
                 temp.setEmail(rs.getString("email"));
