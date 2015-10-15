@@ -1,4 +1,4 @@
-USE master
+﻿USE master
 GO
 
 IF EXISTS (
@@ -52,8 +52,8 @@ CREATE TABLE victim(
 	address NVARCHAR(32) NOT NULL,
 	nationality NVARCHAR(32) NOT NULL,
 	isDead BIT NOT NULL,
-	autopsy_date NVARCHAR(10) NOT NULL,
-	reasons_dead NVARCHAR(256) NOT NULL,
+	autopsy_date NVARCHAR(10)  NULL,
+	reasons_dead NVARCHAR(256)  NULL,
 	id_profile INT NOT NULL
 )
 GO
@@ -155,3 +155,47 @@ GO
 ALTER TABLE list_inquisitor
 ADD CONSTRAINT fk_usernameL FOREIGN KEY (username) REFERENCES account (username)
 GO
+INSERT INTO account(username,password ,email,permission ,full_name,gender ,birth,address ,phone_number ,workplace ,avartar )
+VALUES ('admin','12345','abc@email.com',1,'Bui Nhu Lac',0,'10/10/2015','Doi Can','0123456789','Cong an quan long bien','abc'),
+('admin1','123456','bcd@email.com',1,'Mai Thanh Toan',0,'11/11/2011','Van Bao','0987654321','Cong an Pham Van Dong','abc'),
+('admin2','1234567','jav@email.com',1,'Vu Thanh Huyen',1,'29/02/1996','TRan Duy Hung','1234567890','Cong an Tran Duy Hung','abc');
+Go
+INSERT INTO crime_infomation(crime_name ,id_card ,gender ,birth ,hometown,address ,jobs ,nationality ,crime_type ,avatar)
+VALUES ('Vu Thi Thanh Huyen',1,0,'11/11/2011','Khoai Chau','Doi Can','Ban Da','VN','Giet nguoi','abc'),
+('Truong Ba Nam',1,1,'12/12/2012','Long Bien','Doi Can','Coder','VN','Hiep Dam','abc'),
+('Do Viet Huy',1,1,'13/13/2013','Hai Phong','Doi Can','Coder','VN','An Cuop','abc');
+Go
+INSERT INTO case_profile(day_admission ,crime_scene ,exhibit ,accusation ,conclude ,status )
+VALUES ('10/10/2010','Doi Can','But Bi','Giet nguoi','Chung Than','abc'),
+('11/11/2011','Van Bao','Xe may','Tai nan giao thong','phat hanh hinh ','abc'),
+('12/12/2012','Kim Ma','oto','Can tro giao thong','Phat hanh chinh','abc');
+Go
+INSERT INTO victim(victim_name ,id_card ,gender ,birth ,address ,nationality ,isDead,autopsy_date ,reasons_dead ,id_profile)
+VALUES (N'Cô bán bún',1,0,'22/12/2112',N'Hà Nội',N'Việt Nam',1,'22/10/2012','Bi Giet',2),
+(N'Anh bán than',2,1,'22/12/2112',N'Hà Nội',N'Việt Nam',0,NULL,NULL,2);
+Go
+INSERT INTO  wanted (id_crime,notify_date,status)
+VALUES (1,'11/11/2011','abc'),
+(2,'10/10/2000','bcd'),
+(3,'05/05/2005','efg');
+Go
+INSERT INTO  list_inquisitor (id_profile ,username)
+VALUES (1,'admin'),
+(2,'admin1'),
+(3,'admin2');
+Go
+INSERT INTO complaint (id_profile,id_crime ,id_victim ,testimony)
+VALUES (1,1,1,'aaaaaa'),
+(2,2,2,'xxxxx'),
+(3,3,3,'ccccc');
+Go
+INSERT INTO crime_list(id_profile ,id_crime )
+VALUES (1,1),
+(2,2),
+(3,3);
+GO
+INSERT INTO prisoners (id_crime,detention_date ,prison_address ,jail_time)
+VALUES (1,'20/10/2010',N'Hoả Lò','365 day'),
+(2,'21/11/2011',N'Lũng Cú','365 day'),
+(3,'22/12/2012',N'Côn Lôn','365 day');
+Go
