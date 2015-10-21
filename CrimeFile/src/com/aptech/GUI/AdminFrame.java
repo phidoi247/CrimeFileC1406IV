@@ -6,6 +6,7 @@
 package com.aptech.GUI;
 
 import com.aptech.Session;
+import java.awt.FlowLayout;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -53,6 +54,7 @@ public class AdminFrame extends javax.swing.JFrame {
         jbUserInfo = new javax.swing.JButton();
         jpBanner = new javax.swing.JPanel();
         jlBanner = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -62,7 +64,6 @@ public class AdminFrame extends javax.swing.JFrame {
         jMenuItemAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(806, 700));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -108,7 +109,7 @@ public class AdminFrame extends javax.swing.JFrame {
         jpContain.setMinimumSize(new java.awt.Dimension(600, 500));
         jpContain.setPreferredSize(new java.awt.Dimension(600, 500));
         jpContain.setLayout(new java.awt.CardLayout());
-        getContentPane().add(jpContain, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 940, -1));
+        getContentPane().add(jpContain, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 750, -1));
 
         javax.swing.GroupLayout jpAvartarLayout = new javax.swing.GroupLayout(jpAvartar);
         jpAvartar.setLayout(jpAvartarLayout);
@@ -148,6 +149,14 @@ public class AdminFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(jpBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 600, 120));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserFrameBackground.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 650));
@@ -204,14 +213,23 @@ public class AdminFrame extends javax.swing.JFrame {
     private void jbAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAccountActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbAccount, "images/Button/account-hover.png");
-        AccountManagement accountManagement = new AccountManagement();
-        changePanel(accountManagement);
+        AccountPanel p = new AccountPanel();
+        jpContain.removeAll();
+        jpContain.setLayout(new FlowLayout());
+        jpContain.add(p);
+        jpContain.validate();
     }//GEN-LAST:event_jbAccountActionPerformed
 
     private void jbFirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFirActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbFir, "images/Button/FIR-HOVER.png");
     }//GEN-LAST:event_jbFirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void changeButtonImage(JButton button, String path) {
         Icon icon = new ImageIcon(path);
@@ -272,6 +290,7 @@ public class AdminFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;

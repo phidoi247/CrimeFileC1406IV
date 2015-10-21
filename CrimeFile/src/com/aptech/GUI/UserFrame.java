@@ -6,6 +6,7 @@
 package com.aptech.GUI;
 
 import com.aptech.Session;
+import java.awt.FlowLayout;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -56,6 +57,7 @@ public class UserFrame extends javax.swing.JFrame {
         jbUserInfo = new javax.swing.JButton();
         jpBanner = new javax.swing.JPanel();
         jlBanner = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -65,9 +67,7 @@ public class UserFrame extends javax.swing.JFrame {
         jMenuItemAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(806, 700));
-        setMinimumSize(new java.awt.Dimension(806, 700));
-        setPreferredSize(new java.awt.Dimension(806, 700));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -81,6 +81,9 @@ public class UserFrame extends javax.swing.JFrame {
         });
 
         jbComplaint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/COMPALINT.png"))); // NOI18N
+        jbComplaint.setMaximumSize(new java.awt.Dimension(189, 53));
+        jbComplaint.setMinimumSize(new java.awt.Dimension(189, 53));
+        jbComplaint.setPreferredSize(new java.awt.Dimension(189, 53));
         jbComplaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbComplaintActionPerformed(evt);
@@ -95,6 +98,7 @@ public class UserFrame extends javax.swing.JFrame {
         });
 
         jbPostmortem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/POSTMORTEM.png"))); // NOI18N
+        jbPostmortem.setPreferredSize(new java.awt.Dimension(189, 53));
         jbPostmortem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPostmortemActionPerformed(evt);
@@ -109,6 +113,9 @@ public class UserFrame extends javax.swing.JFrame {
         });
 
         jbMostWanted.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WANTED.png"))); // NOI18N
+        jbMostWanted.setMaximumSize(new java.awt.Dimension(189, 75));
+        jbMostWanted.setMinimumSize(new java.awt.Dimension(189, 75));
+        jbMostWanted.setPreferredSize(new java.awt.Dimension(189, 75));
         jbMostWanted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbMostWantedActionPerformed(evt);
@@ -124,8 +131,8 @@ public class UserFrame extends javax.swing.JFrame {
                     .addComponent(jbPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jbPostmortem, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jbCriminal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jbComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jbCaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbCaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbComplaint, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 1, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -135,19 +142,21 @@ public class UserFrame extends javax.swing.JFrame {
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jbCaseHistory)
-                .addGap(18, 18, 18)
-                .addComponent(jbComplaint)
-                .addGap(18, 18, 18)
+                .addComponent(jbCaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jbComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jbCriminal)
-                .addGap(31, 31, 31)
-                .addComponent(jbPostmortem)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
+                .addComponent(jbPostmortem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(jbPrisoners)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jbMostWanted, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jbMostWanted, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
+
+        jpMenuLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbCriminal, jbPostmortem});
 
         getContentPane().add(jpMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 500));
 
@@ -159,14 +168,14 @@ public class UserFrame extends javax.swing.JFrame {
         jpFunction.setLayout(jpFunctionLayout);
         jpFunctionLayout.setHorizontalGroup(
             jpFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
         jpFunctionLayout.setVerticalGroup(
             jpFunctionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jpFunction, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+        getContentPane().add(jpFunction, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 750, -1));
 
         javax.swing.GroupLayout jpAvartarLayout = new javax.swing.GroupLayout(jpAvartar);
         jpAvartar.setLayout(jpAvartarLayout);
@@ -207,8 +216,17 @@ public class UserFrame extends javax.swing.JFrame {
 
         getContentPane().add(jpBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 600, 120));
 
+        jButton2.setText("Out");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserFrameBackground.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 650));
+        jLabel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
 
         jMenu1.setText("File");
         jMenu1.add(jSeparator1);
@@ -246,31 +264,37 @@ public class UserFrame extends javax.swing.JFrame {
     private void jbCaseHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCaseHistoryActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbCaseHistory, "images/Button/CASE-HISTORY-HOVER.png");
+        addPanel(new CasePanel());
     }//GEN-LAST:event_jbCaseHistoryActionPerformed
 
     private void jbComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbComplaintActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbComplaint, "images/Button/COMPLAINT-HOVER.png");
+        addPanel(new ComplaintPanel());
     }//GEN-LAST:event_jbComplaintActionPerformed
 
     private void jbCriminalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCriminalActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbCriminal, "images/Button/CRIMINAL-HOVER.png");
+        addPanel(new CrimePanel());
     }//GEN-LAST:event_jbCriminalActionPerformed
 
     private void jbPostmortemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPostmortemActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbPostmortem, "images/Button/POSTMORTEM-HOVER.png");
+        addPanel(new VictimPanel());
     }//GEN-LAST:event_jbPostmortemActionPerformed
 
     private void jbPrisonersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPrisonersActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbPrisoners, "images/Button/PRISONER-HOVER.png");
+        addPanel(new PrisonerPanel());
     }//GEN-LAST:event_jbPrisonersActionPerformed
 
     private void jbMostWantedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostWantedActionPerformed
         changeButtonImageOrginal();
         changeButtonImage(jbMostWanted, "images/Button/WANTED-HOVER.png");
+        addPanel(new WantedPanel());
     }//GEN-LAST:event_jbMostWantedActionPerformed
 
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
@@ -289,6 +313,12 @@ public class UserFrame extends javax.swing.JFrame {
         userInfo.setVisible(true);
     }//GEN-LAST:event_jbUserInfoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public void changeButtonImage(JButton button, String path) {
         Icon icon = new ImageIcon(path);
         button.setIcon(icon);
@@ -301,6 +331,13 @@ public class UserFrame extends javax.swing.JFrame {
         changeButtonImage(jbPostmortem, "images/Button/POSTMORTEM.png");
         changeButtonImage(jbPrisoners, "images/Button/PRISONER.png");
         changeButtonImage(jbMostWanted, "images/Button/WANTED.png");
+    }
+    
+    private void addPanel(javax.swing.JPanel p){
+        jpFunction.removeAll();
+        jpFunction.setLayout(new FlowLayout());
+        jpFunction.add(p);
+        jpFunction.validate();
     }
 
     /**
@@ -330,6 +367,8 @@ public class UserFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -340,6 +379,7 @@ public class UserFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
