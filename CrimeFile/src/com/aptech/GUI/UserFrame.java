@@ -7,6 +7,8 @@ package com.aptech.GUI;
 
 import com.aptech.Session;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -14,6 +16,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -52,13 +55,12 @@ public class UserFrame extends javax.swing.JFrame {
         jbPrisoners = new javax.swing.JButton();
         jbMostWanted = new javax.swing.JButton();
         jpFunction = new javax.swing.JPanel();
-        jpAvartar = new javax.swing.JPanel();
         jlAvartar = new javax.swing.JLabel();
         jbUserInfo = new javax.swing.JButton();
-        jpBanner = new javax.swing.JPanel();
         jlBanner = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -127,38 +129,38 @@ public class UserFrame extends javax.swing.JFrame {
         jpMenuLayout.setHorizontalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuLayout.createSequentialGroup()
-                .addGroup(jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jbPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jbPostmortem, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jbCriminal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jbCaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbComplaint, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbCriminal, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbPostmortem, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbMostWanted, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 1, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMenuLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbMostWanted, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jbCaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jpMenuLayout.setVerticalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbCaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jbComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jbCriminal)
                 .addGap(18, 18, 18)
                 .addComponent(jbPostmortem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addComponent(jbPrisoners)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jbMostWanted, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap())
         );
 
         jpMenuLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbCriminal, jbPostmortem});
 
-        getContentPane().add(jpMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 500));
+        getContentPane().add(jpMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 160, 430));
 
         jpFunction.setMaximumSize(new java.awt.Dimension(600, 500));
         jpFunction.setMinimumSize(new java.awt.Dimension(600, 500));
@@ -177,19 +179,8 @@ public class UserFrame extends javax.swing.JFrame {
 
         getContentPane().add(jpFunction, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 750, -1));
 
-        javax.swing.GroupLayout jpAvartarLayout = new javax.swing.GroupLayout(jpAvartar);
-        jpAvartar.setLayout(jpAvartarLayout);
-        jpAvartarLayout.setHorizontalGroup(
-            jpAvartarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-        jpAvartarLayout.setVerticalGroup(
-            jpAvartarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jpAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 120));
-        getContentPane().add(jlAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 120));
+        jlAvartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avatar.png"))); // NOI18N
+        getContentPane().add(jlAvartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 140, 190));
 
         jbUserInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/briefcase_view.png"))); // NOI18N
         jbUserInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -197,36 +188,25 @@ public class UserFrame extends javax.swing.JFrame {
                 jbUserInfoActionPerformed(evt);
             }
         });
-        getContentPane().add(jbUserInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 30, -1));
-
-        jpBanner.setBackground(new java.awt.Color(13, 200, 189));
+        getContentPane().add(jbUserInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 90, 50));
 
         jlBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/banner.gif"))); // NOI18N
+        getContentPane().add(jlBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 610, -1));
 
-        javax.swing.GroupLayout jpBannerLayout = new javax.swing.GroupLayout(jpBanner);
-        jpBanner.setLayout(jpBannerLayout);
-        jpBannerLayout.setHorizontalGroup(
-            jpBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jpBannerLayout.setVerticalGroup(
-            jpBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlBanner, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jpBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 600, 120));
-
-        jButton2.setText("Out");
+        jButton2.setText("LOG OUT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 90, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserFrameBackground.png"))); // NOI18N
         jLabel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 120));
 
         jMenu1.setText("File");
         jMenu1.add(jSeparator1);
@@ -335,7 +315,7 @@ public class UserFrame extends javax.swing.JFrame {
     
     private void addPanel(javax.swing.JPanel p){
         jpFunction.removeAll();
-        jpFunction.setLayout(new FlowLayout());
+        jpFunction.setLayout(new GridLayout());
         jpFunction.add(p);
         jpFunction.validate();
     }
@@ -381,6 +361,7 @@ public class UserFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
@@ -396,8 +377,6 @@ public class UserFrame extends javax.swing.JFrame {
     private javax.swing.JButton jbUserInfo;
     private javax.swing.JLabel jlAvartar;
     private javax.swing.JLabel jlBanner;
-    private javax.swing.JPanel jpAvartar;
-    private javax.swing.JPanel jpBanner;
     private javax.swing.JPanel jpFunction;
     private javax.swing.JPanel jpMenu;
     // End of variables declaration//GEN-END:variables
