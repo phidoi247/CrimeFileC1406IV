@@ -6,8 +6,6 @@
 package com.aptech.GUI;
 
 import com.aptech.utilities.DBConnection;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,7 +56,7 @@ public class AccountPanel extends javax.swing.JPanel {
                 v = new Vector();
                 for(int i=1;i<12;i++){
                     v.add(rs.getString(i));
-                }tableModel.addRow(v);
+                }tableModel.addRow(v);                
                 txtUsername.setText(rs.getString(1));
                 txtPassword.setText(rs.getString(2));
                 txtEmail.setText(rs.getString(3));
@@ -118,6 +117,8 @@ public class AccountPanel extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         lblDisplay = new javax.swing.JTextField();
         lblAvatar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtProfile = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Account Manager"));
         setPreferredSize(new java.awt.Dimension(750, 500));
@@ -191,69 +192,77 @@ public class AccountPanel extends javax.swing.JPanel {
 
         cboPermission.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "User", "Admin" }));
 
+        datePick.setDate(Calendar.getInstance().getTime());
+
         lblDisplay.setEditable(false);
         lblDisplay.setForeground(new java.awt.Color(255, 0, 0));
 
         lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/avatar.png"))); // NOI18N
 
+        jLabel1.setText("Profile ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel6)
-                            .addComponent(rdoMale))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtFullname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(datePick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(rdoMale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rdoFemale)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtFullname, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(datePick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(24, 24, 24)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel11)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(rdoFemale)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
+                                    .addComponent(jLabel11))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cboPermission, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtWorkplace, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cboPermission, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtWorkplace, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAdd)
+                                    .addComponent(btnFind)
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDelete)
+                                    .addComponent(btnBrowse))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd)
-                            .addComponent(btnFind)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete)
-                            .addComponent(btnBrowse))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
-                .addContainerGap())
+                                .addGap(103, 103, 103)
+                                .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(25, 25, 25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnBrowse, btnDelete, btnFind, btnUpdate});
@@ -261,7 +270,12 @@ public class AccountPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -296,7 +310,6 @@ public class AccountPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBrowse)
                             .addComponent(cboPermission, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rdoMale)
                             .addComponent(rdoFemale)))
                     .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -345,22 +358,32 @@ public class AccountPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if("".equals(txtUsername.getText())||"".equals(txtPassword.getText()))
-            lblDisplay.setText("Add fail");
+           
+        if("".equals(txtUsername.getText())||"".equals(txtPassword.getText())||"".equals(txtProfile.getText()))
+            lblDisplay.setText("User,password or profile ID must not empty");
         else{
-            int permission=2;byte gender = (byte)1;
-            if(cboPermission.getSelectedIndex()==1)
-                permission=1;
-            if(rdoFemale.isSelected())
-                gender = (byte)0;
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-            if(new com.aptech.services.AccountServices().addAccount(new com.aptech.model.Account(
-                txtUsername.getText(),txtPassword.getText(),txtEmail.getText(),permission,txtFullname.getText(),gender,
-                df.format(datePick.getDate()),txtAddress.getText(),txtPhone.getText(),txtWorkplace.getText(),"avatar"))==1)
-                lblDisplay.setText("Insert success");
-            else
-                lblDisplay.setText("Insert fail");
-            showAll();
+            if(!DBConnection.recordCheck("select * from dbo.case_profile where id_profile="+txtProfile.getText()))
+                lblDisplay.setText("Wrong profile ID");
+            else{
+                if(DBConnection.recordCheck("select * from dbo.account where username='"+txtUsername.getText()+"'")){
+                    lblDisplay.setText("Username existed");
+                }else{
+                    new com.aptech.services.ListInquisitorServices().addListInquisitor(new com.aptech.model.ListInquisitor(Integer.parseInt(txtProfile.getText()), txtUsername.getText()));
+                    int permission=2;byte gender = (byte)1;
+                    if(cboPermission.getSelectedIndex()==1)
+                        permission=1;
+                    if(rdoFemale.isSelected())
+                        gender = (byte)0;
+                    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                    if(new com.aptech.services.AccountServices().addAccount(new com.aptech.model.Account(
+                        txtUsername.getText(),txtPassword.getText(),txtEmail.getText(),permission,txtFullname.getText(),gender,
+                        df.format(datePick.getDate()),txtAddress.getText(),txtPhone.getText(),txtWorkplace.getText(),"avatar"))==1)
+                        lblDisplay.setText("Insert success");
+                    else
+                        lblDisplay.setText("Insert fail");
+                    showAll();
+                }
+            }            
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -396,34 +419,39 @@ public class AccountPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        if("".equals(txtUsername.getText()))
-            lblDisplay.setText("Username empty");
+        if("admin".equals(txtUsername.getText()))
+            lblDisplay.setText("Can't delete this account");
         else{
-            Connection con = DBConnection.openConnection();
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            try {
-                ps = con.prepareStatement("select * from dbo.account where username='"+txtUsername.getText()+"'");
-                rs = ps.executeQuery();
-                if(!rs.next()){
-                    lblDisplay.setText("Wrong username");
-                }else{
-                    int permission=2;byte gender = (byte)1;
-                    if(cboPermission.getSelectedIndex()==0)
-                        permission=1;
-                    if(rdoFemale.isSelected())
-                        gender = (byte)0;
-                    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-                    new com.aptech.services.AccountServices().deleteAccount(new com.aptech.model.Account(
-                        txtUsername.getText(),txtPassword.getText(),txtEmail.getText(),permission,txtFullname.getText(),gender,
-                        df.format(datePick.getDate()),txtAddress.getText(),txtPhone.getText(),txtWorkplace.getText(),"avatar"));
-                    lblDisplay.setText("Delete success");                    
-                }
-            } catch (SQLException ex) {
-            Logger.getLogger(AccountPanel.class.getName()).log(Level.SEVERE, null, ex);
-            } finally{DBConnection.closeConnection(con, ps, rs, null);}
-            showAll();
-        }
+            if("".equals(txtUsername.getText()))
+                lblDisplay.setText("Username empty");
+            else{
+                Connection con = DBConnection.openConnection();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
+                try {
+                    ps = con.prepareStatement("select * from dbo.account where username='"+txtUsername.getText()+"'");
+                    rs = ps.executeQuery();
+                    if(!rs.next()){
+                        lblDisplay.setText("Wrong username");
+                    }else{
+                        DBConnection.record("delete from dbo.list_inquisitor where username='"+txtUsername.getText()+"'");
+                        int permission=2;byte gender = (byte)1;
+                        if(cboPermission.getSelectedIndex()==0)
+                            permission=1;
+                        if(rdoFemale.isSelected())
+                            gender = (byte)0;
+                        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                        new com.aptech.services.AccountServices().deleteAccount(new com.aptech.model.Account(
+                            txtUsername.getText(),txtPassword.getText(),txtEmail.getText(),permission,txtFullname.getText(),gender,
+                            df.format(datePick.getDate()),txtAddress.getText(),txtPhone.getText(),txtWorkplace.getText(),"avatar"));
+                        lblDisplay.setText("Delete success");                    
+                    }
+                } catch (SQLException ex) {
+                Logger.getLogger(AccountPanel.class.getName()).log(Level.SEVERE, null, ex);
+                } finally{DBConnection.closeConnection(con, ps, rs, null);}
+                showAll();
+            }
+        }        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
@@ -437,6 +465,7 @@ public class AccountPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cboPermission;
     private org.jdesktop.swingx.JXDatePicker datePick;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -455,6 +484,7 @@ public class AccountPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtFullname;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtProfile;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtWorkplace;
     // End of variables declaration//GEN-END:variables

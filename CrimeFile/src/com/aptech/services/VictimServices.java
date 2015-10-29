@@ -22,8 +22,8 @@ public class VictimServices {
         int rowAdded = 0;
         Connection connection = DBConnection.openConnection();
         String query = "INSERT INTO [crime_file].[dbo].[victim] "
-                + " ([victim_name],[id_card],[gender],[birth],[address],[nationality],[isDead],[autopsy_date],[reasons_dead],[id_profile]) "
-                + " VALUES (?,?,?,?,?,?,?,?,?,?)";
+                + " ([victim_name],[id_card],[gender],[birth],[address],[nationality],[isDead],[autopsy_date],[reasons_dead]) "
+                + " VALUES (?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(query);
@@ -37,7 +37,6 @@ public class VictimServices {
             ps.setByte(7, victim.getIsDead());
             ps.setString(8, victim.getAutopsy_date());
             ps.setString(9, victim.getReasons_dead());
-            ps.setInt(10, victim.getId_profile());
 
             rowAdded += ps.executeUpdate();
         } catch (SQLException ex) {
@@ -53,7 +52,7 @@ public class VictimServices {
         int rowUpdated = 0;
         Connection connection = DBConnection.openConnection();
         String query = " UPDATE [crime_file].[dbo].[victim] "
-                + " SET [victim_name] = ?,[id_card] = ?,[gender] = ?,[birth] = ?,[address] = ?,[nationality] = ?,[isDead] = ?,[autopsy_date] = ?,[reasons_dead] = ?,[id_profile] = ? "
+                + " SET [victim_name] = ?,[id_card] = ?,[gender] = ?,[birth] = ?,[address] = ?,[nationality] = ?,[isDead] = ?,[autopsy_date] = ?,[reasons_dead] = ? "
                 + " WHERE [id_victim]=? ";
         PreparedStatement ps = null;
         try {
@@ -68,8 +67,7 @@ public class VictimServices {
             ps.setByte(7, victim.getIsDead());
             ps.setString(8, victim.getAutopsy_date());
             ps.setString(9, victim.getReasons_dead());
-            ps.setInt(10, victim.getId_profile());
-            ps.setInt(11, victim.getId_victim());
+            ps.setInt(10, victim.getId_victim());
 
             rowUpdated += ps.executeUpdate();
         } catch (SQLException ex) {
@@ -123,7 +121,6 @@ public class VictimServices {
                 temp.setIsDead(rs.getByte("isDead"));
                 temp.setAutopsy_date(rs.getString("autopsy_date"));
                 temp.setReasons_dead(rs.getString("reason_dead"));
-                temp.setId_profile(rs.getInt("id_profile"));
                 
                 arrVictims.add(temp);
             }
@@ -161,7 +158,6 @@ public class VictimServices {
                 temp.setIsDead(rs.getByte("isDead"));
                 temp.setAutopsy_date(rs.getString("autopsy_date"));
                 temp.setReasons_dead(rs.getString("reason_dead"));
-                temp.setId_profile(rs.getInt("id_profile"));
             }
 
         } catch (SQLException ex) {

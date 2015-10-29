@@ -126,6 +126,11 @@
     <Component class="javax.swing.JTextField" name="txtConclude">
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="datePick">
+      <Properties>
+        <Property name="date" type="java.util.Date" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Calendar.getInstance().getTime()" type="code"/>
+        </Property>
+      </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>

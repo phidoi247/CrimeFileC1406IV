@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -29,6 +30,7 @@ public class WantedPanel extends javax.swing.JPanel {
     public WantedPanel() {
         initComponents();
         showAll();
+        
     }
 
     private void showAll(){
@@ -172,6 +174,8 @@ public class WantedPanel extends javax.swing.JPanel {
         buttonGroup1.add(rdoFemale);
         rdoFemale.setText("Female");
         rdoFemale.setEnabled(false);
+
+        datePick.setDate(Calendar.getInstance().getTime());
 
         lblName.setEditable(false);
 
@@ -372,7 +376,7 @@ public class WantedPanel extends javax.swing.JPanel {
         if("".equals(txtID.getText()))
             txtID.setText("0");
         String str = "select * from dbo.wanted where id_crime="+Integer.parseInt(txtID.getText());
-        try {
+        try {            
             ps = con.prepareStatement(str);
             rs = ps.executeQuery();
             if(!rs.next()){

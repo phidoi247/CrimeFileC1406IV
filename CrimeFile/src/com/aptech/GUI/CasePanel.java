@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,6 +99,8 @@ public class CasePanel extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Case Manager"));
         setPreferredSize(new java.awt.Dimension(750, 500));
+
+        datePick.setDate(Calendar.getInstance().getTime());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -333,6 +336,9 @@ public class CasePanel extends javax.swing.JPanel {
             if(!rs.next()){
                 lblDisplay.setText("Wrong profile ID");
             }else{
+                DBConnection.record("delete from dbo.list_inquisitor where id_profile="+Integer.parseInt(txtID.getText()));
+                DBConnection.record("delete from dbo.complaint where id_profile="+Integer.parseInt(txtID.getText()));
+                DBConnection.record("delete from dbo.crime_list where id_profile="+Integer.parseInt(txtID.getText()));
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 new com.aptech.services.CaseProfileServices().deleteCaseprofile(new com.aptech.model.CaseProfile(
                     Integer.parseInt(txtID.getText()),df.format(datePick.getDate()),txtArea.getText(),txtExhibit.getText(),txtAccusasion.getText()

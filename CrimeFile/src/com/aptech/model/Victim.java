@@ -20,19 +20,18 @@ public class Victim {
     private byte isDead;
     private String autopsy_date;
     private String reasons_dead;
-    private int id_profile;
 
     
 
     @Override
     public String toString() {
-        return "Victim{" + "id_victim=" + id_victim + ", victim_name=" + victim_name + ", id_card=" + id_card + ", gender=" + gender + ", birth=" + birth + ", address=" + address + ", nationality=" + nationality + ", isDead=" + isDead + ", autopsy_date=" + autopsy_date + ", reasons_dead=" + reasons_dead + ", id_profile=" + id_profile + '}';
+        return "Victim{" + "id_victim=" + id_victim + ", victim_name=" + victim_name + ", id_card=" + id_card + ", gender=" + gender + ", birth=" + birth + ", address=" + address + ", nationality=" + nationality + ", isDead=" + isDead + ", autopsy_date=" + autopsy_date + ", reasons_dead=" + reasons_dead + '}';
     }
 
     public Victim() {
     }
 
-    public Victim(int id_victim, String victim_name, String id_card, byte gender, String birth, String address, String nationality, byte isDead, String autopsy_date, String reasons_dead, int id_profile) {
+    public Victim(int id_victim, String victim_name, String id_card, byte gender, String birth, String address, String nationality, byte isDead, String autopsy_date, String reasons_dead) {
         this.id_victim = id_victim;
         this.victim_name = victim_name;
         this.id_card = id_card;
@@ -43,7 +42,6 @@ public class Victim {
         this.isDead = isDead;
         this.autopsy_date = autopsy_date;
         this.reasons_dead = reasons_dead;
-        this.id_profile = id_profile;
     }
 
     public int getId_victim() {
@@ -126,13 +124,4 @@ public class Victim {
         this.reasons_dead = reasons_dead;
     }
 
-    public int getId_profile() {
-        return id_profile;
-    }
-
-    public void setId_profile(int id_profile) {
-        this.id_profile = id_profile;
-    }
-
-   
 }

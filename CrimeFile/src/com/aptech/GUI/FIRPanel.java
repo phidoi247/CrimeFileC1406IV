@@ -47,7 +47,8 @@ public class FIRPanel extends javax.swing.JPanel {
             lblUser.setText(""+now);
         } catch (SQLException ex) {
             Logger.getLogger(FIRPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } finally{DBConnection.closeConnection(con, ps, rs, null);};
+        lblDate.setText(Calendar.getInstance().getTime().toString());
         int year = Calendar.getInstance().get(Calendar.YEAR);
         tblModel = new DefaultTableModel();
         tblModel.addColumn("");
@@ -77,7 +78,7 @@ public class FIRPanel extends javax.swing.JPanel {
         int under=0,medium=0,old=0;int year = Calendar.getInstance().get(Calendar.YEAR);
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date date; // your date
-    
+        
         try {
             ps = con.prepareStatement(str);rs = ps .executeQuery();
             while(rs.next()){               
@@ -141,6 +142,7 @@ public class FIRPanel extends javax.swing.JPanel {
         tblDisplay = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblShow = new javax.swing.JTable();
+        lblDate = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("First Information Report"));
 
@@ -182,6 +184,9 @@ public class FIRPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblShow);
 
+        lblDate.setEditable(false);
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,15 +206,19 @@ public class FIRPanel extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(35, 35, 35)
+                .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,11 +226,11 @@ public class FIRPanel extends javax.swing.JPanel {
                     .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -233,6 +242,7 @@ public class FIRPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField lblAdmin;
+    private javax.swing.JTextField lblDate;
     private javax.swing.JTextField lblTotal;
     private javax.swing.JTextField lblUser;
     private javax.swing.JTable tblDisplay;

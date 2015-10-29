@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -182,6 +183,8 @@ public class PrisonerPanel extends javax.swing.JPanel {
         lblJob.setEditable(false);
 
         lblType.setEditable(false);
+
+        datePick.setDate(Calendar.getInstance().getTime());
 
         lblDisplay.setEditable(false);
         lblDisplay.setForeground(new java.awt.Color(255, 0, 0));

@@ -53,8 +53,7 @@ CREATE TABLE victim(
 	nationality NVARCHAR(32) NOT NULL,
 	isDead BIT NOT NULL,
 	autopsy_date NVARCHAR(10)  NULL,
-	reasons_dead NVARCHAR(256)  NULL,
-	id_profile INT NOT NULL
+	reasons_dead NVARCHAR(256)  NULL
 )
 GO
 
@@ -136,10 +135,6 @@ ALTER TABLE wanted
 ADD CONSTRAINT fk_idCrimeW FOREIGN KEY (id_crime) REFERENCES crime_infomation (id_crime)
 GO
 
-ALTER TABLE victim
-ADD CONSTRAINT fk_idProfileC FOREIGN KEY (id_profile) REFERENCES case_profile (id_profile)
-GO
-
 ALTER TABLE prisoners
 ADD CONSTRAINT fk_idCrimeP FOREIGN KEY (id_crime) REFERENCES crime_infomation (id_crime)
 GO
@@ -192,17 +187,17 @@ VALUES ('10/10/2010',N'Đội Cấn',N'Bút Bi',N'Giết người',N'Chung Thân
 ('13/02/2018',N'Nguyễn Trí Thanh','oto',N'Gây tai nạn giao thông',N'Phạt hành chính','abc'),
 ('22/10/2019',N'Khuất Duy Tiến','oto',N'Gây tai nạn giao thông',N'Phạt hành chính','abc');
 Go
-INSERT INTO victim(victim_name,id_card ,gender ,birth ,address ,nationality ,isDead,autopsy_date ,reasons_dead ,id_profile)
-VALUES (N'Cô bán bún',1,0,'01/02/2112',N'Hà Nội',N'Việt Nam',1,'22/10/2012',N'Bị mưu sát',2),
-(N'Anh bán than',2,1,'03/04/2112',N'Tây Nguyên',N'Việt Nam',0,NULL,NULL,2),
-(N'Vũ Thanh Huyền',2,0,'05/06/2112',N'Kon Tum',N'Việt Nam',0,'20/10/2015',N'Bị ăn đòn vì quá láo',2),
-(N'Anh bán cơm',1,1,'07/08/2112',N'Đắk Lắk',N'Việt Nam',0,NULL,NULL,2),
-(N'Chị bán rau',1,0,'09/10/2112',N'Gia Lai',N'Việt Nam',1,'22/10/2012',N'Bị hãm hại',2),
-(N'Thợ sửa ống nước',1,1,'11/12/2112',N'Nha Trang',N'Việt Nam',0,NULL,NULL,2),
-(N'Cô đếm tiền',1,0,'22/01/2112',N'Vũng Tàu',N'Việt Nam',0,NULL,NULL,2),
-(N'Anh bán muối',1,1,'23/02/2112',N'Phú Quốc',N'Việt Nam',0,NULL,NULL,2),
-(N'Cô bán rượu',1,0,'24/03/2112',N'Cần Thơ',N'Việt Nam',0,NULL,NULL,2),
-(N'Cô bán thân',1,0,'25/05/2112',N'Cao Bằng',N'Việt Nam',0,NULL,NULL,2);
+INSERT INTO victim(victim_name,id_card ,gender ,birth ,address ,nationality ,isDead,autopsy_date ,reasons_dead)
+VALUES (N'Cô bán bún',1,0,'01/02/2112',N'Hà Nội',N'Việt Nam',1,'22/10/2012',N'Bị mưu sát'),
+(N'Anh bán than',2,1,'03/04/2112',N'Tây Nguyên',N'Việt Nam',0,NULL,NULL),
+(N'Vũ Thanh Huyền',2,0,'05/06/2112',N'Kon Tum',N'Việt Nam',0,'20/10/2015',N'Bị ăn đòn vì quá láo'),
+(N'Anh bán cơm',1,1,'07/08/2112',N'Đắk Lắk',N'Việt Nam',0,NULL,NULL),
+(N'Chị bán rau',1,0,'09/10/2112',N'Gia Lai',N'Việt Nam',1,'22/10/2012',N'Bị hãm hại'),
+(N'Thợ sửa ống nước',1,1,'11/12/2112',N'Nha Trang',N'Việt Nam',0,NULL,NULL),
+(N'Cô đếm tiền',1,0,'22/01/2112',N'Vũng Tàu',N'Việt Nam',0,NULL,NULL),
+(N'Anh bán muối',1,1,'23/02/2112',N'Phú Quốc',N'Việt Nam',0,NULL,NULL),
+(N'Cô bán rượu',1,0,'24/03/2112',N'Cần Thơ',N'Việt Nam',0,NULL,NULL),
+(N'Cô bán thân',1,0,'25/05/2112',N'Cao Bằng',N'Việt Nam',0,NULL,NULL);
 Go
 INSERT INTO  wanted (id_crime,notify_date,status)
 VALUES (1,'11/11/2011','aaaa'),

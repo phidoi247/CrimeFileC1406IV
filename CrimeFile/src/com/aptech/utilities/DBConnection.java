@@ -11,6 +11,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -71,4 +75,29 @@ public class DBConnection {
         }
     }
 
+    public static void record(String querry){
+        Connection con = DBConnection.openConnection();
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(querry);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{DBConnection.closeConnection(con, ps, null, null);}        
+    }
+    public static boolean recordCheck(String querry){
+        Connection con = DBConnection.openConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean check=false;
+        try {
+            ps = con.prepareStatement(querry);
+            rs = ps.executeQuery();  
+            check=rs.next();
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{DBConnection.closeConnection(con, ps, rs, null);}  
+        return check;
+    }
+    
 }

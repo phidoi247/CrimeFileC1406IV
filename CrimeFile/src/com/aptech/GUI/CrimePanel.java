@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -114,6 +115,10 @@ public class CrimePanel extends javax.swing.JPanel {
         lblDisplay = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtCard = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtProfile = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Crime Manager"));
         setPreferredSize(new java.awt.Dimension(750, 500));
@@ -201,70 +206,84 @@ public class CrimePanel extends javax.swing.JPanel {
         lblID.setEditable(false);
         lblID.setForeground(new java.awt.Color(255, 0, 0));
 
+        datePick.setDate(Calendar.getInstance().getTime());
+
         lblDisplay.setEditable(false);
         lblDisplay.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel1.setText("Card ID");
 
+        jLabel2.setText("Profile ID");
+
+        jLabel11.setText("Crime ID");
+
+        jLabel12.setText("Crime ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rdoMale)
+                                .addGap(18, 18, 18)
+                                .addComponent(rdoFemale))
+                            .addComponent(datePick, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                            .addComponent(txtTown)
+                            .addComponent(txtCard, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtProfile))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rdoMale)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(rdoFemale))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(datePick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                        .addComponent(txtTown, javax.swing.GroupLayout.Alignment.LEADING)))
                                 .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
+                                        .addGap(1, 1, 1)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel9)))))
+                                            .addComponent(jLabel12)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel11)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel10)
+                                                    .addGap(22, 22, 22)))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtType)
+                            .addComponent(txtType, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(txtAddress)
                             .addComponent(txtNationality, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtJob, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txtJob, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtID)
+                            .addComponent(lblID))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDelete)
-                            .addComponent(btnBrowse)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdd)
-                            .addComponent(btnFind))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnDelete)
+                                    .addComponent(btnBrowse)
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAdd)
+                                    .addComponent(btnFind))
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblDisplay))))
                 .addContainerGap())
         );
 
@@ -273,17 +292,23 @@ public class CrimePanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnFind)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
-                            .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAdd)
@@ -358,20 +383,29 @@ public class CrimePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        byte gender=(byte)1;
-        if(rdoMale.isSelected())
-            gender=(byte)1;
-        if(rdoFemale.isSelected())
-            gender=(byte)0;
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        if(new com.aptech.services.CrimeInfomationServices().addCrimeInfomation(new com.aptech.model.CrimeInfomation(
-            0,txtName.getText(),txtCard.getText(),gender, df.format(datePick.getDate())
-            ,txtTown.getText(),txtAddress.getText(),txtJob.getText(),txtNationality.getText()
-            ,txtType.getText(),"avatar"))==1)
-        lblDisplay.setText("Insert success");
-        else
-        lblDisplay.setText("Insert fail");
-        showAll();
+        if("".equals(txtProfile.getText())){
+            lblDisplay.setText("Profile ID must not empty");
+        }else{
+            if(!DBConnection.recordCheck("select * from dbo.case_profile where id_profile="+txtProfile.getText())){
+                lblDisplay.setText("Wrong profile ID");
+            }else{                
+                byte gender=(byte)1;
+                if(rdoMale.isSelected())
+                    gender=(byte)1;
+                if(rdoFemale.isSelected())
+                    gender=(byte)0;
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                if(new com.aptech.services.CrimeInfomationServices().addCrimeInfomation(new com.aptech.model.CrimeInfomation(
+                    0,txtName.getText(),txtCard.getText(),gender, df.format(datePick.getDate())
+                    ,txtTown.getText(),txtAddress.getText(),txtJob.getText(),txtNationality.getText()
+                    ,txtType.getText(),"avatar"))==1)
+                lblDisplay.setText("Insert success");
+                else
+                lblDisplay.setText("Insert fail");
+                showAll();
+                new com.aptech.services.CrimeListServices().addCrimeList(new com.aptech.model.CrimeList(Integer.parseInt(txtProfile.getText()), Integer.parseInt(lblID.getText())));
+            }            
+        }        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -420,16 +454,20 @@ public class CrimePanel extends javax.swing.JPanel {
             if(!rs.next()){
                 lblDisplay.setText("Wrong crime ID");
             }else{
+                DBConnection.record("delete from dbo.complaint where id_crime="+txtID.getText());
+                DBConnection.record("delete from dbo.crime_list where id_crime="+txtID.getText());
+                DBConnection.record("delete from dbo.prisoners where id_crime="+txtID.getText());
+                DBConnection.record("delete from dbo.wanted where id_crime="+txtID.getText());
                 byte gender=(byte)1;
-        if(rdoMale.isSelected())
-            gender=(byte)1;
-        if(rdoFemale.isSelected())
-            gender=(byte)0;
+                if(rdoMale.isSelected())
+                    gender=(byte)1;
+                if(rdoFemale.isSelected())
+                    gender=(byte)0;
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 new com.aptech.services.CrimeInfomationServices().deleteCrimeInfomation(new com.aptech.model.CrimeInfomation(
-            Integer.parseInt(txtID.getText()),txtName.getText(),txtCard.getText(),gender, df.format(datePick.getDate())
-            ,txtTown.getText(),txtAddress.getText(),txtJob.getText(),txtNationality.getText()
-            ,txtType.getText(),"avatar"));
+                    Integer.parseInt(txtID.getText()),txtName.getText(),txtCard.getText(),gender, df.format(datePick.getDate())
+                    ,txtTown.getText(),txtAddress.getText(),txtJob.getText(),txtNationality.getText()
+                    ,txtType.getText(),"avatar"));
                 lblDisplay.setText("Delete success");
             }
         } catch (SQLException ex) {
@@ -451,6 +489,9 @@ public class CrimePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXDatePicker datePick;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -471,6 +512,7 @@ public class CrimePanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtJob;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNationality;
+    private javax.swing.JTextField txtProfile;
     private javax.swing.JTextField txtTown;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables

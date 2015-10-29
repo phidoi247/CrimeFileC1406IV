@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +43,6 @@ public class VictimPanel extends javax.swing.JPanel {
         tblModel.addColumn("IsDead");
         tblModel.addColumn("Autopsy date");
         tblModel.addColumn("Dead reason");
-        tblModel.addColumn("Profile ID");
         Connection con = DBConnection.openConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -52,7 +52,7 @@ public class VictimPanel extends javax.swing.JPanel {
             rs = ps.executeQuery();
             while(rs.next()){
                 v = new Vector();
-                for (int i = 1; i < 12; i++) {
+                for (int i = 1; i < 11; i++) {
                     v.add(rs.getString(i));
                 }tblModel.addRow(v);
                 lblID.setText(rs.getString(1));
@@ -74,7 +74,6 @@ public class VictimPanel extends javax.swing.JPanel {
                 if(rs.getString(9)!=null&&!rs.getString(9).equals(""))
                 datePickAutopsy.setDate(df.parse(rs.getString(9)));
                 txtReason.setText(rs.getString(10));
-                txtProfile.setText(rs.getString(11));
             }
         } catch (SQLException ex) {
             Logger.getLogger(VictimPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,8 +96,6 @@ public class VictimPanel extends javax.swing.JPanel {
         rdoDead = new javax.swing.JRadioButton();
         rdoFemale = new javax.swing.JRadioButton();
         rdoMale = new javax.swing.JRadioButton();
-        txtProfile = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
@@ -153,8 +150,6 @@ public class VictimPanel extends javax.swing.JPanel {
         rdoMale.setSelected(true);
         rdoMale.setText("Male");
 
-        jLabel13.setText("Profile ID");
-
         jLabel16.setText("Victim ID");
 
         lblID.setForeground(new java.awt.Color(255, 0, 0));
@@ -196,10 +191,14 @@ public class VictimPanel extends javax.swing.JPanel {
             }
         });
 
+        datePickAutopsy.setDate(Calendar.getInstance().getTime());
+
         jLabel1.setText("Dead reason");
         jLabel1.setToolTipText("");
 
         jLabel2.setText("Nationality");
+
+        datePickBirth.setDate(Calendar.getInstance().getTime());
 
         lblDisplay.setEditable(false);
         lblDisplay.setForeground(new java.awt.Color(255, 51, 0));
@@ -226,34 +225,29 @@ public class VictimPanel extends javax.swing.JPanel {
                             .addComponent(txtName))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel16)
-                            .addComponent(rdoMale)
-                            .addComponent(rdoAlive))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rdoMale)
+                                    .addComponent(rdoAlive))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rdoDead)
-                                    .addComponent(rdoFemale))
-                                .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel11))
-                                .addGap(23, 23, 23))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblID)
-                                .addGap(28, 28, 28)
-                                .addComponent(lblDisplay)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(rdoFemale)
+                                    .addComponent(jLabel16)))
+                            .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblID)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(datePickAutopsy, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                             .addComponent(txtReason, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(txtNationality, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                            .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnFind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -275,17 +269,15 @@ public class VictimPanel extends javax.swing.JPanel {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(btnFind)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
                     .addComponent(jLabel19)
                     .addComponent(btnAdd)
                     .addComponent(datePickAutopsy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdoFemale)
@@ -341,7 +333,6 @@ public class VictimPanel extends javax.swing.JPanel {
                 if(rs.getString(9)!=null&&!rs.getString(9).equals(""))
                 datePickAutopsy.setDate(df.parse(rs.getString(9)));
                 txtReason.setText(rs.getString(10));
-                txtProfile.setText(rs.getString(11));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PrisonerPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -365,8 +356,8 @@ public class VictimPanel extends javax.swing.JPanel {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         if(new com.aptech.services.VictimServices().addVictim(new com.aptech.model.Victim(
             0,txtName.getText(),txtCard.getText(),gender, df.format(datePickBirth.getDate())
-            ,txtAddress.getText(),txtNationality.getText(),isDead,df.format(datePickBirth.getDate())
-            ,txtReason.getText(), Integer.parseInt(txtProfile.getText())))==1)
+            ,txtAddress.getText(),txtNationality.getText(),isDead,df.format(datePickAutopsy.getDate())
+            ,txtReason.getText()))==1)
         lblDisplay.setText("Insert success");
         else
         lblDisplay.setText("Insert fail");
@@ -398,8 +389,8 @@ public class VictimPanel extends javax.swing.JPanel {
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 new com.aptech.services.VictimServices().updateVictim(new com.aptech.model.Victim(
             Integer.parseInt(txtID.getText()),txtName.getText(),txtCard.getText(),gender, df.format(datePickBirth.getDate())
-            ,txtAddress.getText(),txtNationality.getText(),isDead,df.format(datePickBirth.getDate())
-            ,txtReason.getText(), Integer.parseInt(txtProfile.getText())));
+            ,txtAddress.getText(),txtNationality.getText(),isDead,df.format(datePickAutopsy.getDate())
+            ,txtReason.getText()));
                 lblDisplay.setText("Update success");
             }
         } catch (SQLException ex) {
@@ -421,22 +412,23 @@ public class VictimPanel extends javax.swing.JPanel {
             ps = con.prepareStatement(str);
             rs = ps.executeQuery();
             if(!rs.next()){
-                lblDisplay.setText("Wrong crime ID");
+                lblDisplay.setText("Wrong victim ID");
             }else{
+                DBConnection.record("delete from dbo.complaint where id_victim="+txtID.getText());
                 byte gender=(byte)1;byte isDead=(byte)1;
-        if(rdoMale.isSelected())
-            gender=(byte)1;
-        if(rdoFemale.isSelected())
-            gender=(byte)0;
-        if(rdoDead.isSelected())
-            isDead=(byte)1;
-        if(rdoAlive.isSelected())
-            isDead=(byte)0;
+                if(rdoMale.isSelected())
+                    gender=(byte)1;
+                if(rdoFemale.isSelected())
+                    gender=(byte)0;
+                if(rdoDead.isSelected())
+                    isDead=(byte)1;
+                if(rdoAlive.isSelected())
+                    isDead=(byte)0;
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 new com.aptech.services.VictimServices().deleteVictim(new com.aptech.model.Victim(
-            Integer.parseInt(txtID.getText()),txtName.getText(),txtCard.getText(),gender, df.format(datePickBirth.getDate())
-            ,txtAddress.getText(),txtNationality.getText(),isDead,df.format(datePickBirth.getDate())
-            ,txtReason.getText(), Integer.parseInt(txtProfile.getText())));
+                    Integer.parseInt(txtID.getText()),txtName.getText(),txtCard.getText(),gender, df.format(datePickBirth.getDate())
+                    ,txtAddress.getText(),txtNationality.getText(),isDead,df.format(datePickAutopsy.getDate())
+                    ,txtReason.getText()));
                 lblDisplay.setText("Delete success");
             }
         } catch (SQLException ex) {
@@ -459,7 +451,6 @@ public class VictimPanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXDatePicker datePickBirth;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -479,7 +470,6 @@ public class VictimPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNationality;
-    private javax.swing.JTextField txtProfile;
     private javax.swing.JTextField txtReason;
     // End of variables declaration//GEN-END:variables
 }
